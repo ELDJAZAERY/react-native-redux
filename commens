@@ -1,0 +1,60 @@
+{/*<View style={styles.container}>
+  {<StatusBar translucent={true} backgroundColor={'rgba(0,0,0,0.1)'} animated={true}/>}
+  {this.renderTopBar()}
+  <View style={styles.regContainer} >
+    <FlatList
+      data={this.state.plates}
+      keyExtractor={item => item.id}
+      ItemSeparatorComponent={this.renderSeparator}
+      renderItem= {({item}) => {
+        console.log(JSON.stringify(item));
+        return(
+          <LicensePlateInfo
+            info={item}
+          />
+        )
+      }}
+    />
+  </View>
+</View>*/}
+
+
+
+<Text style={styles.infoText}> License Plate: {licenseN} </Text>
+<Text style={styles.infoText}> Car Regetration N° : {carN}</Text>
+<Text style={styles.infoText}> Empotisseur : {embotisseur} </Text>
+
+ref={(ref)=>this.PlateInput=ref}
+ref={(ref) => this.certInput=ref}
+<TextInput
+          autoFocus
+          style={{ height: 40, marginTop: 15, marginBottom: 15 }}
+          onChangeText={value => this.setState({ phoneNumber: value })}
+          placeholder={'Enter Votre Numero de Telephone... '}
+          value={phoneNumber}
+          keyboardType={'phone-pad'}
+        />
+
+
+<CopilotStep text="Valider Votre Requete Maintenant" order={3} name="submit">
+  <CopilotButton title="Valider"
+    onPress={() => this.handelSubmit()}
+    loading={this.state.loading}
+    rightIcon={{name: 'code'}}
+    rounded={true}
+    backgroundColor='#A5000D'
+      />
+</CopilotStep>        
+
+<CopilotStep text="Ou bien Syncronizez quant vous serez connecté" order={4} name="save">
+  <CopilotButton 
+    title="Sauveguarder"
+    onPress={()=> this.handelSave()}
+    rightIcon={{name: 'save'}}
+    backgroundColor='#A5000D'
+    loading={this.state.loadingSave}
+      rounded/>
+</CopilotStep>
+
+
+
